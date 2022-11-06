@@ -148,14 +148,7 @@ string getMonthByIndex(int monthNumber)
 }
 /* This function is designed to return the index
  * day of the week for the first month of the year
-      Index     Day
-      1         Monday
-      2         Tuesday
-      3         Wednesday
-      4         Thursday
-      5         Friday
-      6         Saturday
-      0         Sunday
+ *
   */
 int dayDateIndex(int month,int day, int year)
 {
@@ -176,19 +169,37 @@ int dayDateIndex(int month,int day, int year)
     */
     int startDaysOfEachMonth[] = { 0, 3, 3, 6, 1, 4, 6, 2,5, 0, 3, 5 };
     year --; // year before current calendar
-    // Calculate which day corresponds to which date (Monday, Tuesday etc..) by year and month
-    // Calculating the Day
-    // The original formula:
-    // (Year Code + Month Code + Century Code + Date Number - Leap Year Code) mod 7
 
+    /*
+     * Calculate which day corresponds to which date (Monday, Tuesday etc..) by year and month
+     * The original formula:
+     * (Year Code + Month Code + Century Code + Date Number - Leap Year Code) mod 7
+     * Formula returns a index and corresponds to a day
+     * 0         Sunday
+     * 1         Monday
+     * 2         Tuesday
+     * 3         Wednesday
+     * 4         Thursday
+     * 5         Friday
+     * 6         Saturday
+    */
     int startingDay = ( year + year/4 + year/400 + day + startDaysOfEachMonth[month-1] - year/100) % 7;
-
-    //Convert Sun , Mon , Tues, ... , Sat etc.. to ->  Mon, Tues, ..., Sun
+    
+    /* Convert the index order
+     * 0         Monday
+     * 1         Tuesday
+     * 2         Wednesday
+     * 3         Thursday
+     * 4         Friday
+     * 5         Saturday
+     * 6         Sunday
+     */
     if(startingDay == 0)
     {
         startingDay = 6;
     }else{
         startingDay --;
     }
+
     return startingDay;
 }

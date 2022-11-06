@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/natha/Documents/HEIG-VD/prg1/Labo4
+# Install script for directory: C:/Users/natha/Documents/HEIG-VD/Labo4Git/Labo4
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/natha/Documents/HEIG-VD/prg1/Labo4/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/natha/Documents/HEIG-VD/Labo4Git/Labo4/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

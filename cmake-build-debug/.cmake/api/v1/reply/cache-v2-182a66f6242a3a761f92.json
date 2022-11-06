@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/natha/Documents/HEIG-VD/prg1/Labo4/cmake-build-debug"
+			"value" : "c:/Users/natha/Documents/HEIG-VD/Labo4Git/Labo4/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -623,7 +623,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/natha/Documents/HEIG-VD/prg1/Labo4"
+			"value" : "C:/Users/natha/Documents/HEIG-VD/Labo4Git/Labo4"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1239,7 +1239,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/natha/Documents/HEIG-VD/prg1/Labo4/cmake-build-debug"
+			"value" : "C:/Users/natha/Documents/HEIG-VD/Labo4Git/Labo4/cmake-build-debug"
 		},
 		{
 			"name" : "Labo4_IS_TOP_LEVEL",
@@ -1263,7 +1263,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/natha/Documents/HEIG-VD/prg1/Labo4"
+			"value" : "C:/Users/natha/Documents/HEIG-VD/Labo4Git/Labo4"
 		}
 	],
 	"kind" : "cache",

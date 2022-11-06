@@ -2,8 +2,8 @@
 // Fichier        : main.cpp
 // Auteur(s)      : Nathan Rayburn - Leonard Klassen
 // Date           : 06 / 11 / 2022
-// But            : This program is designed to create a calendar
-//                  from the years between 1800 and 2100
+// But            : This program is designed to get the yearly calendar
+//                  from the years between 1800 and 2100 by using our custom library date
 // Compilateur    : Mingw-w64
 //---------------------------------------------------------
 

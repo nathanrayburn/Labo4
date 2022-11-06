@@ -191,7 +191,7 @@ int dayDateIndex(int year)
      * 5         Friday
      * 6         Saturday
     */
-    int startingDay = ( year + monthCode[MONTH-1] + year/4 + year/400 + DAY  - year/100) % 7;
+    int dayOfTheWeek = ( year + monthCode[MONTH-1] + year/4 + year/400 + DAY  - year/100) % 7;
 
     /* Convert the index order
      * 0         Monday
@@ -202,12 +202,12 @@ int dayDateIndex(int year)
      * 5         Saturday
      * 6         Sunday
      */
-    if(startingDay == 0)
+    if(dayOfTheWeek == 0)
     {
-        startingDay = 6;
+        dayOfTheWeek = 6;
     }else{
-        startingDay --;
+        dayOfTheWeek --;
     }
 
-    return startingDay;
+    return dayOfTheWeek;
 }

@@ -18,11 +18,13 @@ string getMonthByIndex(int monthNumber);
 
 /*
  * This function is designed to get the number of days of a month
+ * Return type int
 */
 int numberOfDays (int monthIndex, int year)
 {
     bool leap = (year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)); // Calculate leap year
     int numberOfDays;
+
     //Month Index should always have a case since months go from 0 to 11
     switch(monthIndex)
     {
@@ -68,7 +70,8 @@ int numberOfDays (int monthIndex, int year)
 }
 
 /*
- * This function is designed to create year and return it by string
+ * This function is designed to create year
+ * Return type string
  */
 string getYear(int year)
 {
@@ -76,14 +79,12 @@ string getYear(int year)
     int daysInMonth;
 
     // Title of the calendar
-    yearCalendar += "  Calendrier " + to_string(year) + "\n"
-                                                        "----------------------";
-
+    yearCalendar += "  Calendrier " + to_string(year) + "\n" "----------------------";
 
     // Get the date of the first day of the year
     int dayToStartMonth = dayDateIndex (1, 1, year);
 
-    // Create calendar for each month (months 0 - 11)
+    // Parse through each month of the year and create calendar (months 0 - 11)
     for (int month = 0; month < 12; month++)
     {
 
@@ -102,6 +103,7 @@ string getYear(int year)
         // Create the right amount of spaces for the start off point of the month
         for (indexDay = 0; indexDay < dayToStartMonth; indexDay++){yearCalendar += "   ";}
 
+        // Parse through each day of the month
         for (int day = 1; day <= daysInMonth; day++)
         {
             // Create spaces according to single-digits or double-digits
@@ -136,8 +138,8 @@ string getYear(int year)
     }
     return yearCalendar;
 }
-/*
- * This function is designed to get a months name by index
+/* This function is designed to get a months name by index
+ * Return type string
  */
 string getMonthByIndex(int monthNumber)
 {
@@ -148,7 +150,7 @@ string getMonthByIndex(int monthNumber)
 }
 /* This function is designed to return the index
  * day of the week for the first month of the year
- *
+ * Return type int
   */
 int dayDateIndex(int month,int day, int year)
 {
@@ -174,7 +176,7 @@ int dayDateIndex(int month,int day, int year)
      * Calculate which day corresponds to which date (Monday, Tuesday etc..) by year and month
      * The original formula:
      * (Year Code + Month Code + Century Code + Date Number - Leap Year Code) mod 7
-     * Formula returns a index and corresponds to a day
+     * Formula returns an index and corresponds to a day
      * 0         Sunday
      * 1         Monday
      * 2         Tuesday
@@ -184,7 +186,7 @@ int dayDateIndex(int month,int day, int year)
      * 6         Saturday
     */
     int startingDay = ( year + year/4 + year/400 + day + startDaysOfEachMonth[month-1] - year/100) % 7;
-    
+
     /* Convert the index order
      * 0         Monday
      * 1         Tuesday

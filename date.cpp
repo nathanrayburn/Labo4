@@ -176,7 +176,7 @@ int dayDateIndex(int year)
      * December = 5
     */
     int monthCode[] = { 0, 3, 3, 6, 1, 4, 6, 2,5, 0, 3, 5 };
-    year -= MONTH < 3; // year before current calendar
+    year -= MONTH < 3;
 
     /*
      * Calculate which day corresponds to which date (Monday, Tuesday etc..) by year and month

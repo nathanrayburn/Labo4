@@ -10,6 +10,7 @@
 #ifndef LABO4_DATE_H
 #define LABO4_DATE_H
 
+// Public Functions 
 std::string getYear(int year);
 
 

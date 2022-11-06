@@ -23,6 +23,7 @@ int main() {
 
     // user input for year
     do{
+
         cout << "Veuillez saisir une date [1800 - 2100]\n";
         cin >> userYear;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');

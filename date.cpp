@@ -13,7 +13,7 @@ using namespace std;
 
 
 //Init
-int dayDateIndex(int month, int day, int year);
+int dayDateIndex(int year);
 string getMonthByIndex(int monthNumber);
 
 /*
@@ -81,8 +81,8 @@ string getYear(int year)
     // Title of the calendar
     yearCalendar += "  Calendrier " + to_string(year) + "\n" "----------------------";
 
-    // Get the date of the first day of the year
-    int dayToStartMonth = dayDateIndex (1, 1, year);
+    // get the start of point of the first month of the year
+    int dayToStartMonth = dayDateIndex(year);
 
     // Parse through each month of the year and create calendar (months 0 - 11)
     for (int month = 0; month < 12; month++)
@@ -96,7 +96,7 @@ string getYear(int year)
         yearCalendar += "  L  M  M  J  V  S  D\n";
 
 
-        int indexDay;
+        int indexDay; // ( Current day Counter )
 
         daysInMonth = numberOfDays (month, year);
 
@@ -110,10 +110,10 @@ string getYear(int year)
 
             if(day <= 9)
             {
-                yearCalendar += "  ";             // Number of spaces for single-digits
+                yearCalendar += "  ";             // 2 spaces for single-digits
 
             }else{
-                yearCalendar += " ";             // Number of spaces for double-digits
+                yearCalendar += " ";             // 1 for double-digits
 
             }
 
@@ -152,9 +152,15 @@ string getMonthByIndex(int monthNumber)
  * day of the week for the first month of the year
  * Return type int
   */
-int dayDateIndex(int month,int day, int year)
+int dayDateIndex(int year)
 {
-    //calculate day date reference -- > https://artofmemory.com/blog/how-to-calculate-the-day-of-the-week/
+    // Only need to know when the first day of the first month starts
+    const int MONTH = 1;
+    const int DAY = 1;
+    // calculate day date reference -- > https://artofmemory.com/blog/how-to-calculate-the-day-of-the-week/
+    // Code example reference       -- >
+    // https://www.codespeedy.com/how-to-find-day-from-date-in-cpp/#:~:text=(d%2Bm%2By%2B%5B,stands%20for%20the%20century%20number.
+    //
     /*
      * January = 0
      * February = 3
@@ -169,8 +175,8 @@ int dayDateIndex(int month,int day, int year)
      * November = 3
      * December = 5
     */
-    int startDaysOfEachMonth[] = { 0, 3, 3, 6, 1, 4, 6, 2,5, 0, 3, 5 };
-    year --; // year before current calendar
+    int monthCode[] = { 0, 3, 3, 6, 1, 4, 6, 2,5, 0, 3, 5 };
+    year -= MONTH < 3; // year before current calendar
 
     /*
      * Calculate which day corresponds to which date (Monday, Tuesday etc..) by year and month
@@ -185,7 +191,7 @@ int dayDateIndex(int month,int day, int year)
      * 5         Friday
      * 6         Saturday
     */
-    int startingDay = ( year + year/4 + year/400 + day + startDaysOfEachMonth[month-1] - year/100) % 7;
+    int startingDay = ( year + monthCode[MONTH-1] + year/4 + year/400 + DAY  - year/100) % 7;
 
     /* Convert the index order
      * 0         Monday
